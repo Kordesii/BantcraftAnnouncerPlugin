@@ -13,6 +13,10 @@ public class AnnouncerTimer extends TimerTask {
 
     @Override
     public void run() {
-        bukkitStuff.AnnounceMessage();
+        try {
+            bukkitStuff.AnnounceMessage();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

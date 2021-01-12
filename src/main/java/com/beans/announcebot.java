@@ -25,13 +25,14 @@ public final class announcebot extends JavaPlugin {
         cm = new ConfigModel();
         try {
             cm.ReadAndSetConfig();
+            AnnouncerTimer myAnnounceTimer = new AnnouncerTimer(this);
+            Timer myTimer = new Timer();
+            myTimer.scheduleAtFixedRate(myAnnounceTimer, 0, cm.minutes * 60 * 1000 );
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        AnnouncerTimer myAnnouncTimer = new AnnouncerTimer(this);
-        Timer myTimer = new Timer();
-        myTimer.schedule(myAnnouncTimer, cm.minutes * 60 * 60);
+
     }
 
     public void TestPlugin()
@@ -56,8 +57,7 @@ public final class announcebot extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public void AnnounceMessage()
-    {
+    public void AnnounceMessage() throws InterruptedException {
         cm.currentMessageIndex++;
         if(cm.currentMessageIndex > cm.messages.size()-1)
         {

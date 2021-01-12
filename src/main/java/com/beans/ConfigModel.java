@@ -45,15 +45,15 @@ public class ConfigModel {
             //System.out.println("before getting the minutes");
             //System.out.println(rawConfigContent.get(0));
             String rawMinute = rawConfigContent.get(0);
+            rawConfigContent.remove(0);
             rawMinute = rawMinute.split(":")[1];
             //System.out.println(rawMinute);
             minutes = Integer.parseInt(rawMinute);
             //System.out.println("before manipulating the rawConfigContent");
-            rawConfigContent.remove(0);
-            rawConfigContent.remove(1);
             //System.out.println("now trying to load all messages...");
             for (Iterator<String> i = rawConfigContent.iterator(); i.hasNext();) {
                 String item = i.next();
+                if(item != "message:");
                 messages.add(item);
             }
         }
