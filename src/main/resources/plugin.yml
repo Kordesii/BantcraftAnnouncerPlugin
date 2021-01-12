@@ -1,0 +1,9 @@
+name: AnnounceBot
+version: ${project.version}
+main: com.beans.announcebot
+api-version: 1.16
+prefix: AnnounceBot
+load: STARTUP
+authors: [ IReallyLoveBeans ]
+description: Custom Plugin for the Bantcraft Server that shouts cool messages
+website: boards.4chan.org/bant
