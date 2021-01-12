@@ -1,5 +1,5 @@
 name: AnnounceBot
-version: ${project.version}
+version: 0.2
 main: com.beans.announcebot
 api-version: 1.16
 prefix: AnnounceBot
