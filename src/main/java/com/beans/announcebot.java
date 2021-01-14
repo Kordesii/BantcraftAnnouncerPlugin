@@ -1,6 +1,7 @@
 package com.beans;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -68,9 +69,7 @@ public final class announcebot extends JavaPlugin {
         //System.out.println(cm.currentMessageIndex);
 
         String rawMessageLine = (String)cm.messages.get((int)cm.currentMessageIndex);
-        String colorCode = rawMessageLine.Split(':')[0];
-        String message = rawMessageLine.Split(':')[1];
-        Bukkit.broadcastMessage((ChatColor.translateAlternateColorCodes(colorCode, message)););
+        Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', rawMessageLine));
 
     }
 
