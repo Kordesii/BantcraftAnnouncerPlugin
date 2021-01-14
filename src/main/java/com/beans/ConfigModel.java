@@ -51,6 +51,7 @@ public class ConfigModel {
             minutes = Integer.parseInt(rawMinute);
             //System.out.println("before manipulating the rawConfigContent");
             //System.out.println("now trying to load all messages...");
+            rawConfigContent.remove(0); // removing the messages: line
             for (Iterator<String> i = rawConfigContent.iterator(); i.hasNext();) {
                 String item = i.next();
                 if(item != "message:");

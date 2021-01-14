@@ -18,7 +18,7 @@ public final class announcebot extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Bukkit.getConsoleSender().sendMessage("BRUH YOU SPILLED THE BEANS!!! wtf (Plugin enabled)");
+        Bukkit.getConsoleSender().sendMessage("BRUH YOU SPILLED THE BEANS!!! wtf (AnnounceBot Plugin enabled)");
 
         CheckPluginFolder();
 
@@ -55,6 +55,7 @@ public final class announcebot extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        Bukkit.getConsoleSender().sendMessage("AnnounceBot Plugin disabled!");
     }
 
     public void AnnounceMessage() throws InterruptedException {
@@ -66,8 +67,11 @@ public final class announcebot extends JavaPlugin {
         //System.out.println(cm.messages.size());
         //System.out.println(cm.currentMessageIndex);
 
-        String message = (String)cm.messages.get((int)cm.currentMessageIndex);
-        Bukkit.broadcastMessage(message);
+        String rawMessageLine = (String)cm.messages.get((int)cm.currentMessageIndex);
+        String colorCode = rawMessageLine.Split(':')[0];
+        String message = rawMessageLine.Split(':')[1];
+        Bukkit.broadcastMessage((ChatColor.translateAlternateColorCodes(colorCode, message)););
+
     }
 
 }
